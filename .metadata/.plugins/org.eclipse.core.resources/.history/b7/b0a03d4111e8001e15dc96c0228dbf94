@@ -1,0 +1,13 @@
+package _sb0322_01.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import _sb0322_01.dao.DeptDao;
+
+@Service
+public class ListService {
+
+	@Autowired
+	private DeptDao deptDao;
+}

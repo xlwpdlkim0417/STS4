@@ -1,0 +1,20 @@
+package _sb0322_01.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import _sb0322_01.dao.DeptDao;
+import _sb0322_01.dto.Dept;
+
+@Service
+public class ListService {
+
+	@Autowired
+	private DeptDao deptDao;
+	
+	public List<Dept> selectAll(){
+		
+	}
+}

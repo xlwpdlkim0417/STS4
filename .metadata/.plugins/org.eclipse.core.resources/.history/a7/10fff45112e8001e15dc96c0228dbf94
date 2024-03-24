@@ -1,0 +1,42 @@
+package _sb0322_01.dao;
+
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Repository;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.RowMapper
+
+import _sb0322_01.dto.Dept;
+
+@Repository
+public class DeptDao {
+
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	public List<Dept> selectAll() {
+		List<Dept> list = new ArrayList<>();
+		SqlRowSet rs = jdbcTemplate.queryForRowSet("SELECT * FROM DEPT");
+		Dept dept = Dept.builder().deptno(rs.getInt("deptno")).dname(rs.getString("name")).loc(rs.getString("loc"))
+				.build();
+		list.add(dept);
+		return list;
+
+	}
+	
+	public List<Member2> selectAll() {
+		List<Member2> results = jdbcTemplate.query("SELECT * FROM MEMBER", (ResultSet rs, int rowNum) -> {
+			Member2 member = new Member2(rs.getInt("id"), rs.getString("NAME"), rs.getInt("AGE"), rs.getString("EMAIL"),
+					rs.getString("MEMO"));
+			return member;
+		});
+		return results;
+
+	}
+
+}

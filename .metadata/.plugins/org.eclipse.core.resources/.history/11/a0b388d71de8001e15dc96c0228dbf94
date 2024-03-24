@@ -1,0 +1,19 @@
+package _sb0322_01.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import _sb0322_01.dto.Emp;
+
+
+@Service
+public class UpdateService {
+
+	@Autowired
+	private Emp emp;
+
+	public void updateService(Member2 member) {
+		memberDao.update(member);
+	}
+
+}

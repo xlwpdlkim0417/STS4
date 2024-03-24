@@ -1,0 +1,38 @@
+package _sb0322_01.dao;
+
+import java.sql.ResultSet;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import _sb0322_01.dto.Emp;
+
+@Repository
+public class EmpDao {
+
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	public List<Emp> selectAllEmp(int deptno) {
+		List<Emp> list2 = jdbcTemplate.query("SELECT * FROM EMP WHERE DEPTNO = ?", (ResultSet rs, int rowNum) -> {
+			Emp emp = new Emp(rs.getInt("empno"), rs.getString("ename"), rs.getString("job"), rs.getInt("mgr"),
+					rs.getString("hiredate"), rs.getInt("sal"), rs.getInt("comm"), rs.getInt("deptno") );
+			return emp;
+		}, deptno);
+		return list2;
+
+	}
+	
+	public List<Emp> selectAllByDeptNo(int deptno) {
+		List<Emp> list2 = jdbcTemplate.query("SELECT * FROM EMP WHERE DEPTNO = ?", (ResultSet rs, int rowNum) -> {
+			Emp emp = new Emp(rs.getInt("empno"), rs.getString("ename"), rs.getString("job"), rs.getInt("mgr"),
+					rs.getString("hiredate"), rs.getInt("sal"), rs.getInt("comm"), rs.getInt("deptno") );
+			return emp;
+		}, deptno);
+		return list2;
+
+	}
+
+}

@@ -1,0 +1,29 @@
+package _sb0322;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import _sb0322.dao.MemberDao2;
+
+@SpringBootTest
+class Sb0322ApplicationTests {
+	
+	@Autowired
+	private MemberDao2 memberDao;
+	
+	@Test
+	void contextLoads() {
+	}
+	
+	@Test
+	@DisplayName("selectAll() 테스트")
+	public void test1() {
+		System.out.println(memberDao.selectAll());
+	}
+	
+	@Test
+	@DisplayName("insert() 테스트")
+	
+}

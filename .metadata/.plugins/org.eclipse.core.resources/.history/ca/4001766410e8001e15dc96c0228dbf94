@@ -1,0 +1,28 @@
+package _sb0322_01.dao;
+
+import java.sql.ResultSet;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import _sb0322.dto.Member2;
+
+@Repository
+public class DeptDao {
+	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+	
+	public List<Member2> selectAll() {
+		List<Member2> results = jdbcTemplate.query("SELECT * FROM MEMBER", (ResultSet rs, int rowNum) -> {
+			Member2 member = new Member2(rs.getInt("id"), rs.getString("NAME"), rs.getInt("AGE"), rs.getString("EMAIL"),
+					rs.getString("MEMO"));
+			return member;
+		});
+		return results;
+
+	}
+
+}

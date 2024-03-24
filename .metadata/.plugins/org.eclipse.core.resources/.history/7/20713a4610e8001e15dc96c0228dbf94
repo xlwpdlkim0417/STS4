@@ -1,0 +1,11 @@
+package _sb0322_01.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+public class DeptDao {
+	
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+}
