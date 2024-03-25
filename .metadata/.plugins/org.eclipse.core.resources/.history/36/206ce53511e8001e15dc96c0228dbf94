@@ -1,9 +1,0 @@
-package _sb0322_01.service;
-
-import org.springframework.stereotype.Service;
-
-@Service
-public class ListService {
-
-	private DeptDao deptDao;
-}

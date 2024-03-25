@@ -1,7 +1,0 @@
-package _sb0322.dto;
-
-public class State {
-	
-	private int deptno;
-	private int empno;
-}
